@@ -152,7 +152,7 @@ function! s:get_progpath() abort
                 let l:constant_path = '/usr/local/opt/nvim'
                 if executable(l:constant_path)
                         let l:result = l:constant_path
-                        let l:warning = l:warning . "Using '" . l:constant_path . 
+                        let l:warning = l:warning . "Using '" . l:constant_path .
                                                 \ "' instead of '" . v:progpath
                 else
                         let l:warning = l:warning . 'Firenvim may break next time you update neovim.'
@@ -221,7 +221,7 @@ endfunction
 "   can be found
 " - On windows, also create a registry key that points to the native manifest
 "
-" Manifest paths & registry stuff are specified here: 
+" Manifest paths & registry stuff are specified here:
 " https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests#Manifest_location
 "
 " firenvim#install accepts the following optional arguments:
@@ -237,12 +237,6 @@ function! firenvim#install(...) abort
 
         let l:force_install = 0
         let l:script_prolog = ''
-        if a:0 > 0
-                let l:force_install = a:1
-                if a:0 > 1
-                        let l:script_prolog = a:2
-                endif
-        endif
 
         " Decide where the script responsible for starting neovim should be
         let l:data_dir = s:get_data_dir_path()
@@ -286,7 +280,7 @@ function! firenvim#install(...) abort
                 let l:manifest_content = l:cur_browser['manifest_content'](l:execute_nvim_path)
                 let l:manifest_dir_path = l:cur_browser['manifest_dir_path']()
                 let l:manifest_path = s:build_path([l:manifest_dir_path, 'firenvim.json'])
-                
+
                 if has('win32')
                         let l:manifest_path = s:build_path([l:manifest_dir_path, 'firenvim-' . l:name . '.json'])
                 endif
